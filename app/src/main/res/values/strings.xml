@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">CalculatorME</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_calculator">Calculator</string>
+    <string name="menu_converter">Converter</string>
+
+    <string name="calculator_num0">0</string>
+    <string name="calculator_num1">1</string>
+    <string name="calculator_num2">2</string>
+    <string name="calculator_num3">3</string>
+    <string name="calculator_num4">4</string>
+    <string name="calculator_num5">5</string>
+    <string name="calculator_num6">6</string>
+    <string name="calculator_num7">7</string>
+    <string name="calculator_num8">8</string>
+    <string name="calculator_num9">9</string>
+    <string name="calculator_plus">+</string>
+    <string name="calculator_minus">-</string>
+    <string name="calculator_multiply">*</string>
+    <string name="calculator_divide">/</string>
+    <string name="calculator_equal">=</string>
+    <string name="calculator_backspace">Del</string>
+    <string name="calculator_clear">C</string>
+    <string name="calculator_percent">%</string>
+    <string name="calculator_dot">.</string>
+    <string name="calculator_reverse">+/-</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
