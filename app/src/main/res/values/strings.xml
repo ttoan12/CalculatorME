@@ -26,6 +26,7 @@
     <string name="calculator_percent">%</string>
     <string name="calculator_dot">.</string>
     <string name="calculator_reverse">+/-</string>
+    <string name="title_activity_convert_currency_main">convertCurrency_main</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
