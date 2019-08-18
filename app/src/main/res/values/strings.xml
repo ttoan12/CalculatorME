@@ -18,15 +18,20 @@
     <string name="calculator_num9">9</string>
     <string name="calculator_plus">+</string>
     <string name="calculator_minus">-</string>
-    <string name="calculator_multiply">*</string>
-    <string name="calculator_divide">/</string>
+    <string name="calculator_multiply">×</string>
+    <string name="calculator_divide">÷</string>
     <string name="calculator_equal">=</string>
     <string name="calculator_backspace">Del</string>
     <string name="calculator_clear">C</string>
     <string name="calculator_percent">%</string>
     <string name="calculator_dot">.</string>
     <string name="calculator_reverse">+/-</string>
-    <string name="title_activity_convert_currency_main">convertCurrency_main</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="converter_fromLabel">From</string>
+    <string name="converter_toLabel">To</string>
+    <string name="converter_selectedFrom">Selected From</string>
+    <string name="converter_selectedTo">Selected To</string>
+    <string name="converter_convertBtn">Convert</string>
+    <string name="converter_hintFrom">Type value here...</string>
+    <string name="converter_hintTo">Result</string>
 </resources>

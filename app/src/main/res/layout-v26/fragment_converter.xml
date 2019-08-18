@@ -23,14 +23,14 @@
 
         <TextView
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="@string/converter_fromLabel"
             android:textColor="#0183FC"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="@string/converter_toLabel"
             android:textColor="#0183FC"
             android:textSize="24sp" />
@@ -50,12 +50,14 @@
         <Spinner
             android:id="@+id/selectFrom"
             android:layout_width="200dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp" />
 
         <Spinner
             android:id="@+id/selectTo"
             android:layout_width="200dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
 
@@ -99,7 +101,7 @@
             android:hint="@string/converter_hintFrom"
             android:inputType="numberDecimal"
             android:textSize="24sp"
-            tools:ignore="Autofill" />
+            android:autofillHints="" />
 
 
     </LinearLayout>
