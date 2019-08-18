@@ -29,9 +29,10 @@
 
     <string name="converter_fromLabel">From</string>
     <string name="converter_toLabel">To</string>
-    <string name="converter_selectedFrom">Selected From</string>
-    <string name="converter_selectedTo">Selected To</string>
+    <string name="converter_selectedFrom">Amount</string>
+    <string name="converter_selectedTo">Result</string>
     <string name="converter_convertBtn">Convert</string>
-    <string name="converter_hintFrom">Type value here...</string>
-    <string name="converter_hintTo">Result</string>
+    <string name="converter_copyBtn">Copy Result</string>
+    <string name="converter_hintFrom">Type value here…</string>
+    <string name="converter_hintTo">Result goes here…</string>
 </resources>

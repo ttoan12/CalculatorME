@@ -1,14 +1,13 @@
 package com.ltdd.calculator;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ public class CalculatorFragment extends Fragment {
     private Button btnNum0, btnNum1, btnNum2, btnNum3, btnNum4, btnNum5, btnNum6, btnNum7, btnNum8, btnNum9, btnPlus, btnMinus, btnDivide, btnMultiply, btnEqual, btnReverse, btnDel, btnClear, btnDot, btnPercent;
     private TextView txtResult, txtHistory;
     private boolean clearText, clearHistory;
-    private double total;
     private List<String> actionList;
 
     public CalculatorFragment() {
@@ -31,6 +29,13 @@ public class CalculatorFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calculator, container, false);
 
+        Mapping(view);
+        CreateBtnFunction();
+
+        return view;
+    }
+
+    private void Mapping(View view) {
         btnNum0 = view.findViewById(R.id.btnNum0);
         btnNum1 = view.findViewById(R.id.btnNum1);
         btnNum2 = view.findViewById(R.id.btnNum2);
@@ -54,9 +59,10 @@ public class CalculatorFragment extends Fragment {
         txtHistory = view.findViewById(R.id.txtHistory);
         txtResult = view.findViewById(R.id.txtResult);
         clearText = clearHistory = false;
-        total = 0;
         actionList = new ArrayList<>();
+    }
 
+    private void CreateBtnFunction() {
         btnNum0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,6 +123,7 @@ public class CalculatorFragment extends Fragment {
                 NumBtnPressed("9");
             }
         });
+
         btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,6 +152,7 @@ public class CalculatorFragment extends Fragment {
                 clearText = true;
             }
         });
+
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,6 +166,7 @@ public class CalculatorFragment extends Fragment {
                 clearText = true;
             }
         });
+
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -171,6 +180,7 @@ public class CalculatorFragment extends Fragment {
                 clearText = true;
             }
         });
+
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +194,7 @@ public class CalculatorFragment extends Fragment {
                 clearText = true;
             }
         });
+
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -208,6 +219,7 @@ public class CalculatorFragment extends Fragment {
                 clearHistory = true;
             }
         });
+
         btnPercent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -220,6 +232,7 @@ public class CalculatorFragment extends Fragment {
                 }
             }
         });
+
         btnReverse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -232,6 +245,7 @@ public class CalculatorFragment extends Fragment {
                 }
             }
         });
+
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -240,6 +254,7 @@ public class CalculatorFragment extends Fragment {
                     txtResult.setText(text.substring(0, text.length() - 1));
             }
         });
+
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,8 +262,6 @@ public class CalculatorFragment extends Fragment {
                 txtHistory.setText("");
             }
         });
-
-        return view;
     }
 
     private double Calculate() {
