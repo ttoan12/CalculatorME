@@ -157,7 +157,7 @@ public class ConverterFragment extends Fragment {
                 for (int i = 0; i < listCurrencyName.size(); i++) {
                     String name = listCurrencyName.get(i);
                     Double rate = rates.getDouble(name);
-                    listCurrencyRate.add(rate);
+                    listCurrencyRate.set(i, rate);
                 }
 
             } catch (JSONException e) {
