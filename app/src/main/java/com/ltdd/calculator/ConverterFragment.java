@@ -59,8 +59,8 @@ public class ConverterFragment extends Fragment {
     }
 
     private void Mapping(@NotNull View view) {
-        spnFrom = view.findViewById(R.id.spUnit);
-        spnTo = view.findViewById(R.id.selectTo);
+        spnFrom = view.findViewById(R.id.spCurrencyFrom);
+        spnTo = view.findViewById(R.id.spCurrencyTo);
         txtFrom = view.findViewById(R.id.txtFrom);
         txtTo = view.findViewById(R.id.txtTo);
         btnConvert = view.findViewById(R.id.btnConvert);

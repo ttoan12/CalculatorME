@@ -37,7 +37,7 @@ public class TemperatureFragment extends Fragment {
     private void Mapping(@NotNull View view) {
         btCtoF = view.findViewById(R.id.btConvert);
         btFtoC = view.findViewById(R.id.btFtoC);
-        txtInput = view.findViewById(R.id.txtInput);
+        txtInput = view.findViewById(R.id.txtLengthValue);
         txtResult = view.findViewById(R.id.txtResult);
     }
 

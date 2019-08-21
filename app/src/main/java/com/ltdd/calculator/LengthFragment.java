@@ -41,8 +41,8 @@ public class LengthFragment extends Fragment {
         return view;
     }
     private void Mapping(@NotNull View view) {
-        spUnit = view.findViewById(R.id.spUnit);
-        txtInput = view.findViewById(R.id.txtInput);
+        spUnit = view.findViewById(R.id.spLengthUnit);
+        txtInput = view.findViewById(R.id.txtLengthValue);
         txtFeet = view.findViewById(R.id.txtFeet);
         txtInches = view.findViewById(R.id.txtInches);
         txtCm = view.findViewById(R.id.txtCm);
