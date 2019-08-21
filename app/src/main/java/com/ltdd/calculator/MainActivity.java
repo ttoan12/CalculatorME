@@ -62,10 +62,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_calculator) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorFragment()).commit();
-            setTitle(getString(R.string.menu_calculator));
-        } else if (id == R.id.nav_converter) {
+            setTitle(getString(R.string.menu_cal_standard));
+        }else if (id == R.id.nav_scientific) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
-            setTitle(getString(R.string.menu_converter));
+            setTitle(getString(R.string.menu_cal_scientific));
+        }else if (id == R.id.nav_dev) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
+            setTitle(getString(R.string.menu_cal_programmer));
+        }else if (id == R.id.nav_currency) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
+            setTitle(getString(R.string.menu_cv_currency));
+        }else if (id == R.id.nav_temp) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TemperatureFragment()).commit();
+            setTitle(getString(R.string.menu_cv_temp));
+        }else if (id == R.id.nav_length) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LengthFragment()).commit();
+            setTitle(getString(R.string.menu_cv_length));
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

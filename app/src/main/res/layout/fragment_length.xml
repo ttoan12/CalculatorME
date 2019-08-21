@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LengthFragment">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/txtInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="100dp"
+            android:hint="Input value here....."
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/spUnit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/txtInput"/>
+
+        <Button
+            android:id="@+id/btConvert"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtInput"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="#0183FC"
+            android:text="@string/converter_convertBtn"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtInches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btConvert"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtFeet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtInches"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtMm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtFeet"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtCm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMm"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtCm"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtKm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtM"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:hint="....."
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

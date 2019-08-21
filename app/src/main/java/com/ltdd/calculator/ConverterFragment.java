@@ -59,7 +59,7 @@ public class ConverterFragment extends Fragment {
     }
 
     private void Mapping(@NotNull View view) {
-        spnFrom = view.findViewById(R.id.selectFrom);
+        spnFrom = view.findViewById(R.id.spUnit);
         spnTo = view.findViewById(R.id.selectTo);
         txtFrom = view.findViewById(R.id.txtFrom);
         txtTo = view.findViewById(R.id.txtTo);

@@ -6,6 +6,19 @@
     <string name="menu_calculator">Calculator</string>
     <string name="menu_converter">Converter</string>
 
+    <string name="menu_cal_standard">Standard</string>
+    <string name="menu_cal_programmer">Programmer</string>
+    <string name="menu_cal_scientific">Scientific</string>
+
+    <string name="menu_cv_currency">Currency</string>
+    <string name="menu_cv_speed">Speed</string>
+    <string name="menu_cv_data">Data</string>
+    <string name="menu_cv_length">Length</string>
+    <string name="menu_cv_weight">Weight</string>
+    <string name="menu_cv_volume">Volume</string>
+    <string name="menu_cv_time">Time</string>
+    <string name="menu_cv_temp">Temperature</string>
+
     <string name="calculator_num0">0</string>
     <string name="calculator_num1">1</string>
     <string name="calculator_num2">2</string>
@@ -26,6 +39,7 @@
     <string name="calculator_percent">%</string>
     <string name="calculator_dot">.</string>
     <string name="calculator_reverse">+/-</string>
+    <string name="calculator_reset">CL</string>
 
     <string name="converter_fromLabel">From</string>
     <string name="converter_toLabel">To</string>
