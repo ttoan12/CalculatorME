@@ -49,7 +49,7 @@ public class SpeedFragment extends Fragment {
         txtM = view.findViewById(R.id.txtM);
         txtKm = view.findViewById(R.id.txtKm);
         txtMm =  view.findViewById(R.id.txtMm);
-        listUnitName = new ArrayList<String>(Arrays.asList("feet", "ich", "mm", "cm", "m", "km"));
+        listUnitName = new ArrayList<String>(Arrays.asList("m/s","m/h","km/s","km/h","mph","c"));
         btConvert = view.findViewById(R.id.btConvert);
     }
     private void CreateBtnFunction() {
@@ -64,42 +64,42 @@ public class SpeedFragment extends Fragment {
     private void Convert() {
         double temp = Double.parseDouble(txtInput.getText().toString());
         String unit =  spUnit.getSelectedItem().toString();
-        if (unit == "ich"){
+        if (unit == "m/s"){
             r1 = (temp * 1); //inches
             r2 = (temp * 0.083); //feet
             r3 = (temp * 25.4); //mm
             r4 = (temp * 2.54); //cm
             r5 = (temp * 0.0254); //m
             r6 = (temp * 0.0000254); //km
-        } else if (unit == "feet"){
+        } else if (unit == "m/h"){
             r1 = (temp * 12); //inches
             r2 = (temp * 1); //feet
             r3 = (temp * 304.8); //mm
             r4 = (temp * 30.48); //cm
             r5 = (temp * 0.3048); //m
             r6 = (temp * 0.0003048); //km
-        }if (unit == "mm"){
+        }if (unit == "km/s"){
             r1 = (temp * 0.03937); //inches
             r2 = (temp * 0.00328); //feet
             r3 = (temp * 1); //mm
             r4 = (temp * 0.1); //cm
             r5 = (temp * 0.001); //m
             r6 = (temp * 0.000001); //km
-        } else if (unit == "cm") {
+        } else if (unit == "km/h") {
             r1 = (temp * 0.3937); //inches
             r2 = (temp * 0.0328); //feet
             r3 = (temp * 10); //mm
             r4 = (temp * 1); //cm
             r5 = (temp * 0.01); //m
             r6 = (temp * 0.00001); //km
-        } else if (unit == "m") {
+        } else if (unit == "mph") {
             r1 = (temp * 39.37); //inches
             r2 = (temp * 3.28 ); //feet
             r3 = (temp * 10000); //mm
             r4 = (temp * 100); //cm
             r5 = (temp * 1); //m
             r6 = (temp * 0.001); //km
-        } else if (unit == "km") {
+        } else if (unit == "c") {
             r1 = (temp * 39.37); //inches
             r2 = (temp * 3.28); //feet
             r3 = (temp * 1000000); //mm

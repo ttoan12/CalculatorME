@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.nav_speed) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SpeedFragment()).commit();
             setTitle(getString(R.string.menu_cv_speed));
+        }else if (id == R.id.nav_time) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TimeFragment()).commit();
+            setTitle(getString(R.string.menu_cv_time));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
