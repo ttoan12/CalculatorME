@@ -47,6 +47,7 @@
     <string name="converter_selectedTo">Result</string>
     <string name="converter_convertBtn">Convert</string>
     <string name="converter_copyBtn">Copy Result</string>
+    <string name="convert_resetBtn">Reset</string>
     <string name="converter_hintFrom">Type value here…</string>
     <string name="converter_hintTo">Result goes here…</string>
 </resources>

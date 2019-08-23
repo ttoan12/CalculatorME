@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class LengthFragment extends Fragment {
+public class SpeedFragment extends Fragment {
     private Spinner spUnit;
     private EditText txtInput;
     private TextView txtFeet, txtInches, txtCm, txtM, txtKm, txtMm;
@@ -25,14 +25,14 @@ public class LengthFragment extends Fragment {
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
 
-    public LengthFragment() {
+    public SpeedFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_length, container, false);
+        View view = inflater.inflate(R.layout.fragment_speed, container, false);
 
         Mapping(view);
         FillData();
@@ -79,29 +79,29 @@ public class LengthFragment extends Fragment {
             r5 = (temp * 0.3048); //m
             r6 = (temp * 0.0003048); //km
         }if (unit == "mm"){
-            r1 = (temp * 0.0393701); //inches
-            r2 = (temp * 0.00328084); //feet
+            r1 = (temp * 0.03937); //inches
+            r2 = (temp * 0.00328); //feet
             r3 = (temp * 1); //mm
             r4 = (temp * 0.1); //cm
             r5 = (temp * 0.001); //m
             r6 = (temp * 0.000001); //km
         } else if (unit == "cm") {
-            r1 = (temp * 0.393701); //inches
-            r2 = (temp * 0.0328084); //feet
+            r1 = (temp * 0.3937); //inches
+            r2 = (temp * 0.0328); //feet
             r3 = (temp * 10); //mm
             r4 = (temp * 1); //cm
             r5 = (temp * 0.01); //m
             r6 = (temp * 0.00001); //km
         } else if (unit == "m") {
-            r1 = (temp * 39.3700787); //inches
-            r2 = (temp * 3.2808399 ); //feet
+            r1 = (temp * 39.37); //inches
+            r2 = (temp * 3.28 ); //feet
             r3 = (temp * 10000); //mm
             r4 = (temp * 100); //cm
             r5 = (temp * 1); //m
             r6 = (temp * 0.001); //km
         } else if (unit == "km") {
-            r1 = (temp * 39.3701); //inches
-            r2 = (temp * 3.28084); //feet
+            r1 = (temp * 39.37); //inches
+            r2 = (temp * 3.28); //feet
             r3 = (temp * 1000000); //mm
             r4 = (temp * 100000); //cm
             r5 = (temp * 1000); //m

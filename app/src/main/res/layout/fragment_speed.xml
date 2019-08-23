@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LengthFragment">
+    tools:context=".SpeedFragment">
 
     <RelativeLayout
         android:id="@+id/RelativeLayout"
@@ -13,25 +13,31 @@
         android:paddingTop="15dp"
         tools:ignore="MissingConstraints">
 
-        <EditText
-            android:id="@+id/txtLengthValue"
-            android:layout_width="200dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="229dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="100dp"
-            android:inputType="numberDecimal"
-            android:textSize="24sp" />
+            android:hint="@string/converter_fromLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtLengthValue"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/null"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="30dp"
+                android:inputType="numberDecimal"
+                android:paddingTop="10dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/spLengthUnit"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/txtLengthValue" />
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@id/btConvert"
+            android:paddingRight="100dp" />
 
         <Button
             android:id="@+id/btConvert"
@@ -40,7 +46,7 @@
             android:layout_below="@+id/txtLengthValue"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="130dp"
             android:background="#0183FC"
             android:text="@string/converter_convertBtn"
             android:textColor="#FFFFFF"
@@ -53,7 +59,7 @@
             android:layout_below="@+id/btConvert"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:hint="Inches"
+            android:hint="m/s"
             android:paddingTop="30dp"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -65,8 +71,8 @@
             android:layout_below="@+id/txtInches"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:hint="km/h"
             android:paddingTop="30dp"
-            android:hint="Feet"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="24sp" />
@@ -78,8 +84,8 @@
             android:layout_below="@+id/txtFeet"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:hint="m/h"
             android:paddingTop="30dp"
-            android:hint="Millimeters"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -90,8 +96,8 @@
             android:layout_below="@+id/txtMm"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
+            android:hint="km/s"
             android:paddingTop="30dp"
-            android:hint="Centimeters"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -130,8 +136,6 @@
             android:text="@string/convert_resetBtn"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
-
-
 
     </RelativeLayout>
 

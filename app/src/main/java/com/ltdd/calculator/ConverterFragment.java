@@ -70,6 +70,8 @@ public class ConverterFragment extends Fragment {
         listCurrencyRate = new ArrayList<Double>(Arrays.asList(1.0, 1.47515, 1.329804, 7.040277, 0.901312, 0.823721, 106.247418, 1209.264968, 66.203863, 23308.77193));
     }
 
+
+
     private void CreateBtnFunction() {
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override

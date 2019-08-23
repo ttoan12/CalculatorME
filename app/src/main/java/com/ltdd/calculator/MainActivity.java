@@ -78,7 +78,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.nav_length) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LengthFragment()).commit();
             setTitle(getString(R.string.menu_cv_length));
-
+        }else if (id == R.id.nav_data) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DataFragment()).commit();
+            setTitle(getString(R.string.menu_cv_data));
+        }else if (id == R.id.nav_speed) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SpeedFragment()).commit();
+            setTitle(getString(R.string.menu_cv_speed));
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
