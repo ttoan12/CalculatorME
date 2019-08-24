@@ -12,20 +12,17 @@
         android:paddingLeft="10dp"
         android:paddingTop="15dp">
 
-
         <EditText
-            android:id="@+id/txtLengthValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
+            android:id="@+id/txtValue"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:hint="Input value here....."
+            android:layout_marginRight="100dp"
             android:inputType="numberDecimal"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColorLink="#0183FC"
             android:textSize="24sp" />
-
-
 
         <TextView
             android:id="@+id/txtResult"
@@ -38,33 +35,47 @@
             android:hint="....."
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="24sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
 
         <Button
             android:id="@+id/btConvert"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtLengthValue"
+            android:layout_below="@+id/txtValue"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:background="#0183FC"
+            android:background="@drawable/btn_shape_round"
             android:text="°C to °F"
-            android:textColor="#FFFFFF"
+            android:textColor="#0183FC"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btFtoC"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btConvert"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:background="#0183FC"
+            android:background="@drawable/btn_shape_round"
             android:text="°F to °C"
-            android:textColor="#FFFFFF"
+            android:textColor="#0183FC"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btReset"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtResult"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/btn_shape_round"
+            android:text="@string/convert_resetBtn"
+            android:textColor="#0183FC"
             android:textStyle="bold" />
     </RelativeLayout>
 

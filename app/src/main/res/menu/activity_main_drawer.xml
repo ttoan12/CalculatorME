@@ -53,9 +53,9 @@
                     android:icon="@drawable/ic_menu_convert_time"
                     android:title="@string/menu_cv_time" />
                 <item
-                    android:id="@+id/nav_volume"
-                    android:icon="@drawable/ic_menu_convert_volume"
-                    android:title="@string/menu_cv_volume" />
+                    android:id="@+id/nav_area"
+                    android:icon="@drawable/ic_menu_convert_area"
+                    android:title="@string/menu_cv_area" />
             </group>
         </menu>
     </item>

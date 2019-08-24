@@ -14,28 +14,21 @@
         android:paddingTop="15dp"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtLengthValue"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        <EditText
+            android:id="@+id/txtValue"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toLeftOf="@id/spLengthUnit">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:inputType="numberDecimal"
-                android:paddingTop="10dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_toLeftOf="@id/spAreaUnit"
+            android:inputType="numberDecimal"
+            android:paddingTop="10dp" />
 
         <Spinner
-            android:id="@+id/spLengthUnit"
+            android:id="@+id/spAreaUnit"
             style="@android:style/Widget.Holo.Spinner"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="30dp"
             android:layout_toRightOf="@id/btConvert"
             android:paddingRight="100dp" />
 
@@ -43,107 +36,115 @@
             android:id="@+id/btConvert"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtLengthValue"
+            android:layout_below="@+id/txtValue"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
-            android:background="#0183FC"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_shape_round"
             android:text="@string/converter_convertBtn"
-            android:textColor="#FFFFFF"
             android:textStyle="bold" />
     </RelativeLayout>
 
     <TextView
-        android:layout_width="400dp"
-        android:layout_height="15dp"
-        android:text="feet"
+        android:layout_width="401dp"
+        android:layout_height="17dp"
+        android:text="Meter per second (m/s)"
         android:textSize="12sp"
         tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="363dp" />
+        tools:layout_editor_absoluteY="334dp" />
 
     <TextView
-        android:id="@+id/txtMm"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="389dp" />
-
-    <TextView
-        android:layout_width="398dp"
-        android:layout_height="14dp"
-        android:text="inches"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="290dp" />
-
-    <TextView
-        android:id="@+id/txtFeet"
+        android:id="@+id/txtMphr"
         android:layout_width="400dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="313dp" />
+        tools:layout_editor_absoluteY="360dp" />
 
     <TextView
         android:layout_width="398dp"
         android:layout_height="14dp"
-        android:text="milimetters"
+        android:text="Centimeter/second (cm/s)"
         android:textSize="12sp"
         tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="439dp" />
+        tools:layout_editor_absoluteY="261dp" />
 
     <TextView
-        android:id="@+id/txtCm"
+        android:id="@+id/txtMps"
         android:layout_width="400dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="465dp" />
+        tools:layout_editor_absoluteY="288dp" />
 
     <TextView
         android:layout_width="398dp"
         android:layout_height="14dp"
-        android:text="centimeters"
+        android:text="Meter/hour (m/h)"
         android:textSize="12sp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="410dp" />
+
+    <TextView
+        android:id="@+id/txtKmpHr"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="436dp" />
+
+    <TextView
+        android:layout_width="398dp"
+        android:layout_height="14dp"
+        android:text="Kilometer/hour (km/h)"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="486dp" />
+
+    <TextView
+        android:id="@+id/txtMileperHr"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="515dp" />
 
-    <TextView
-        android:id="@+id/txtM"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="544dp" />
-
 
     <TextView
         android:layout_width="398dp"
         android:layout_height="14dp"
-        android:text="meters"
+        android:text="Mile/hour (mph)"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="594dp" />
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="565dp" />
 
     <TextView
-        android:id="@+id/txtkm"
+        android:id="@+id/txtFtpS"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="619dp" />
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="590dp" />
 
     <TextView
         android:layout_width="400dp"
         android:layout_height="15dp"
-        android:text="kilometer "
+        android:text="Feet / second (ft/s)"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="669dp" />
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="640dp" />
 
     <TextView
-        android:id="@+id/txtInches"
+        android:id="@+id/txtCmps"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="238dp" />
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="209dp" />
 
+    <Button
+        android:id="@+id/btReset"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_shape_round"
+        android:text="Button"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="665dp"
+        tools:text="@string/convert_resetBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LengthFragment">
+    tools:context=".AreaFragment">
 
     <RelativeLayout
         android:id="@+id/RelativeLayout"
@@ -22,6 +23,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="100dp"
             android:inputType="numberDecimal"
+            android:textColorLink="#0183FC"
             android:textSize="24sp" />
 
         <Spinner
@@ -39,13 +41,13 @@
             android:layout_below="@+id/txtValue"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="#0183FC"
+            android:background="@drawable/btn_shape_round"
             android:text="@string/converter_convertBtn"
-            android:textColor="#FFFFFF"
+            android:textColor="#0183FC"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtCmps"
+            android:id="@+id/txtmm2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btConvert"
@@ -55,7 +57,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/txtMps"
+            android:id="@+id/txtCm2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/t1"
@@ -65,7 +67,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/txtMphr"
+            android:id="@+id/txtM2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/t2"
@@ -75,7 +77,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/txtKmpHr"
+            android:id="@+id/txtHa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/t3"
@@ -84,7 +86,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/txtMileperHr"
+            android:id="@+id/txtKm2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/t4"
@@ -109,55 +111,54 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:background="#0183FC"
             android:text="@string/convert_resetBtn"
-            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_shape_round"
+            android:textColor="#0183FC"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/t1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtCmps"
-            android:text="Inches" />
+            android:layout_below="@id/txtmm2"
+            android:text="mm²" />
 
         <TextView
             android:id="@+id/t2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtMps"
-            android:text="Feet" />
+            android:text="cm²" />
 
         <TextView
             android:id="@+id/t3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtMphr"
-            android:text="Millimeters" />
+            android:text="m²" />
 
         <TextView
             android:id="@+id/t4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtKmpHr"
-            android:text="Centimeters" />
+            android:text="ha" />
 
         <TextView
             android:id="@+id/t5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtMileperHr"
-            android:text="Meters" />
+            android:text="km²" />
 
         <TextView
             android:id="@+id/t6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtInch2"
-            android:text="Kilometers" />
+            android:text="inch²" />
 
 
     </RelativeLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
