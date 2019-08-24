@@ -1,25 +1,15 @@
 package com.ltdd.calculator;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
 import android.view.MenuItem;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.view.Menu;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorFragment()).commit();
-            setTitle(getString(R.string.menu_calculator));
+            setTitle(getString(R.string.menu_cal_standard) + " " + getString(R.string.menu_calculator));
             navigationView.setCheckedItem(R.id.nav_calculator);
         }
     }
@@ -62,13 +52,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_calculator) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorFragment()).commit();
-            setTitle(getString(R.string.menu_cal_standard));
-        }else if (id == R.id.nav_scientific) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
-            setTitle(getString(R.string.menu_cal_scientific));
-        }else if (id == R.id.nav_dev) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
-            setTitle(getString(R.string.menu_cal_programmer));
+            setTitle(getString(R.string.menu_cal_standard) + " " + getString(R.string.menu_calculator));
+        } else if (id == R.id.nav_advanced_calculator) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorScientificFragment()).commit();
+            setTitle(getString(R.string.menu_cal_advanced) + " " + getString(R.string.menu_calculator));
         }else if (id == R.id.nav_currency) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
             setTitle(getString(R.string.menu_cv_currency));

@@ -7,8 +7,7 @@
     <string name="menu_converter">Converter</string>
 
     <string name="menu_cal_standard">Standard</string>
-    <string name="menu_cal_programmer">Programmer</string>
-    <string name="menu_cal_scientific">Scientific</string>
+    <string name="menu_cal_advanced">Advanced</string>
 
     <string name="menu_cv_currency">Currency</string>
     <string name="menu_cv_speed">Speed</string>
@@ -41,6 +40,16 @@
     <string name="calculator_dot">.</string>
     <string name="calculator_reverse">+/-</string>
     <string name="calculator_reset">CL</string>
+    <string name="calculator_bracketOpen">(</string>
+    <string name="calculator_bracketClose">)</string>
+    <string name="calculator_Sin">sin</string>
+    <string name="calculator_Cos">cos</string>
+    <string name="calculator_Tan">tan</string>
+    <string name="calculator_Mod">Mod</string>
+    <string name="calculator_Pow">^</string>
+    <string name="calculator_Root">√</string>
+    <string name="calculator_Pi">π</string>
+    <string name="calculator_Factorial">n!</string>
 
     <string name="converter_fromLabel">From</string>
     <string name="converter_toLabel">To</string>

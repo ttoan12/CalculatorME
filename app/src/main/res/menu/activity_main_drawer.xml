@@ -11,13 +11,9 @@
                     android:icon="@drawable/ic_menu_calculator"
                     android:title="@string/menu_cal_standard" />
                 <item
-                    android:id="@+id/nav_scientific"
+                    android:id="@+id/nav_advanced_calculator"
                     android:icon="@drawable/ic_menu_calculator_scientific"
-                    android:title="@string/menu_cal_scientific" />
-                <item
-                    android:id="@+id/nav_dev"
-                    android:icon="@drawable/ic_menu_calculator_dev"
-                    android:title="@string/menu_cal_programmer" />
+                    android:title="@string/menu_cal_advanced" />
             </group>
         </menu>
     </item>
