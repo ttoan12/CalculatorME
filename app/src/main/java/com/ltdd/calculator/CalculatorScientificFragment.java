@@ -14,10 +14,11 @@ import java.util.List;
 
 public class CalculatorScientificFragment extends Fragment {
 
-    private Button btnNum0, btnNum1, btnNum2, btnNum3, btnNum4, btnNum5, btnNum6, btnNum7, btnNum8, btnNum9, btnPlus, btnMinus, btnDivide, btnMultiply, btnEqual, btnReverse, btnDel, btnClear, btnDot, btnPercent;
+    private Button btnNum0, btnNum1, btnNum2, btnNum3, btnNum4, btnNum5, btnNum6, btnNum7, btnNum8, btnNum9, btnPlus, btnMinus, btnDivide, btnMultiply, btnEqual, btnReverse, btnDel, btnClear, btnDot, btnPercent, btnBraceOpen, btnBraceClose, btnSin, btnCos, btnTan, btnMod, btnPow, btnRoot, btnPi, btnFactorial;
     private TextView txtResult, txtHistory;
-    private boolean clearText, clearHistory;
+    private boolean clearText, clearHistory, isBraced;
     private List<String> actionList;
+    private int braceOpened;
 
     public CalculatorScientificFragment() {
         // Required empty public constructor
@@ -55,10 +56,22 @@ public class CalculatorScientificFragment extends Fragment {
         btnClear = view.findViewById(R.id.btnClear);
         btnDel = view.findViewById(R.id.btnDel);
         btnDot = view.findViewById(R.id.btnDot);
+        btnBraceOpen = view.findViewById(R.id.btnBracketOpen);
+        btnBraceClose = view.findViewById(R.id.btnBracketClose);
+        btnSin = view.findViewById(R.id.btnSin);
+        btnCos = view.findViewById(R.id.btnCos);
+        btnTan = view.findViewById(R.id.btnTan);
+        btnMod = view.findViewById(R.id.btnMod);
+        btnPow = view.findViewById(R.id.btnPow);
+        btnRoot = view.findViewById(R.id.btnRoot);
+        btnPi = view.findViewById(R.id.btnPi);
+        btnFactorial = view.findViewById(R.id.btnFactorial);
         btnReverse = view.findViewById(R.id.btnReverse);
         txtHistory = view.findViewById(R.id.txtHistory);
         txtResult = view.findViewById(R.id.txtResult);
-        clearText = clearHistory = false;
+        clearText = clearHistory = true;
+        isBraced = false;
+        braceOpened = 0;
         actionList = new ArrayList<>();
     }
 
@@ -131,9 +144,9 @@ public class CalculatorScientificFragment extends Fragment {
                     txtResult.setText("");
                     clearText = false;
                 }
-                if (txtResult.getText().toString().equals(""))
+                if (txtResult.getText().toString().equals("")) {
                     txtResult.append("0.");
-                else {
+                } else {
                     txtResult.append(".");
                 }
             }
@@ -142,13 +155,21 @@ public class CalculatorScientificFragment extends Fragment {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("+");
+                    String historyTextAppend = " + ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
                 if (IsNull() || IsEditSymbol("+", "+")) return;
                 FixDot();
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("+");
-                String historyText = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " + ";
-                txtHistory.append(historyText);
+                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " + ";
+                txtHistory.append(historyTextAppend);
                 clearText = true;
             }
         });
@@ -156,13 +177,21 @@ public class CalculatorScientificFragment extends Fragment {
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("-");
+                    String historyTextAppend = " - ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
                 if (IsNull() || IsEditSymbol("-", "-")) return;
                 FixDot();
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("-");
-                String historyText = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " - ";
-                txtHistory.append(historyText);
+                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " - ";
+                txtHistory.append(historyTextAppend);
                 clearText = true;
             }
         });
@@ -170,13 +199,21 @@ public class CalculatorScientificFragment extends Fragment {
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("*");
+                    String historyTextAppend = " × ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
                 if (IsNull() || IsEditSymbol("*", "×")) return;
                 FixDot();
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("*");
-                String historyText = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " × ";
-                txtHistory.append(historyText);
+                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " × ";
+                txtHistory.append(historyTextAppend);
                 clearText = true;
             }
         });
@@ -184,13 +221,21 @@ public class CalculatorScientificFragment extends Fragment {
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("/");
+                    String historyTextAppend = " ÷ ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
                 if (IsNull() || IsEditSymbol("/", "÷")) return;
                 FixDot();
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("/");
-                String historyText = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " ÷ ";
-                txtHistory.append(historyText);
+                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " ÷ ";
+                txtHistory.append(historyTextAppend);
                 clearText = true;
             }
         });
@@ -204,15 +249,41 @@ public class CalculatorScientificFragment extends Fragment {
                     clearHistory = false;
                 }
                 FixDot();
+                if (isBraced) {
+                    while (braceOpened > 0) {
+                        actionList.add(")");
+                        txtHistory.append(")");
+                        braceOpened -= 1;
+                    }
+                    double result = Calculate(actionList);
+                    if (result == -1) {
+                        return;
+                    }
+                    actionList.clear();
+                    String historyTextAppend = " = " + (result == (int) result ? Integer.toString((int) result) : result);
+                    txtHistory.append(historyTextAppend);
+                    String displayText = (result == (int) result ? Integer.toString((int) result) : result) + "";
+                    txtResult.setText(displayText);
+                    clearText = true;
+                    clearHistory = true;
+                    isBraced = false;
+                    return;
+                }
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
-                double result = Calculate();
+                txtHistory.append(resultText);
+                while (braceOpened > 0) {
+                    actionList.add(")");
+                    txtHistory.append(")");
+                    braceOpened -= 1;
+                }
+                double result = Calculate(actionList);
                 if (result == -1) {
                     return;
                 }
                 actionList.clear();
-                String historyText = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " = " + (result == (int) result ? Integer.toString((int) result) : result);
-                txtHistory.append(historyText);
+                String historyTextAppend = " = " + (result == (int) result ? Integer.toString((int) result) : result);
+                txtHistory.append(historyTextAppend);
                 String displayText = (result == (int) result ? Integer.toString((int) result) : result) + "";
                 txtResult.setText(displayText);
                 clearText = true;
@@ -252,6 +323,8 @@ public class CalculatorScientificFragment extends Fragment {
                 String text = txtResult.getText().toString();
                 if (text.length() > 0)
                     txtResult.setText(text.substring(0, text.length() - 1));
+                else
+                    clearText = true;
             }
         });
 
@@ -260,15 +333,75 @@ public class CalculatorScientificFragment extends Fragment {
             public void onClick(View view) {
                 txtResult.setText("");
                 txtHistory.setText("");
+                clearText = true;
+                clearHistory = true;
+            }
+        });
+
+        btnBraceOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearText && clearHistory) {
+                    actionList.add("(");
+                    txtHistory.setText("(");
+                    clearHistory = false;
+                    braceOpened += 1;
+                } else if (clearText) {
+                    actionList.add("(");
+                    txtHistory.append("(");
+                    braceOpened += 1;
+                }
+            }
+        });
+
+        btnBraceClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = txtHistory.getText().toString();
+                if (braceOpened > 0 && text.toCharArray()[text.length() - 1] == '(') {
+                    actionList.add("0");
+                    actionList.add(")");
+                    txtHistory.append("0)");
+                    braceOpened -= 1;
+                    isBraced = true;
+                } else if (braceOpened > 0) {
+                    String resultText = txtResult.getText().toString();
+                    actionList.add(resultText);
+                    actionList.add(")");
+                    txtHistory.append(resultText + ")");
+                    braceOpened -= 1;
+                    isBraced = true;
+                }
             }
         });
     }
 
-    private double Calculate() {
+    private double Calculate(List<String> actionList) {
         if (actionList.size() < 1) return -1;
         while (true) {
+            // Nếu có ngoặc
+            if (actionList.contains("(")) {
+                int indexBraceOpen = actionList.indexOf("(");
+                int indexBraceClose = -1;
+
+                while (indexBraceClose == -1) {
+                    for (int i = indexBraceOpen + 1; i < actionList.size(); i++) {
+                        if (actionList.get(i).equals(")")) {
+                            indexBraceClose = i;
+                            List<String> tempActionList = actionList.subList(indexBraceOpen + 1, indexBraceClose);
+                            Calculate(tempActionList);
+                            actionList.remove(indexBraceOpen + 2);
+                            actionList.remove(indexBraceOpen);
+                            break;
+                        } else if (actionList.get(i).equals("(")) {
+                            indexBraceOpen = i;
+                            break;
+                        }
+                    }
+                }
+            }
             // Nếu nhân hoặc chia
-            if (actionList.contains("/") || actionList.contains("*")) {
+            else if (actionList.contains("/") || actionList.contains("*")) {
                 int indexMultiply = actionList.indexOf("*");
                 int indexDivide = actionList.indexOf("/");
 
@@ -306,8 +439,9 @@ public class CalculatorScientificFragment extends Fragment {
                     actionList.remove(indexDivide + 1);
                     actionList.remove(indexDivide);
                 }
-                // Nếu cộng trừ
-            } else if (actionList.contains("+") || actionList.contains("-")) {
+            }
+            // Nếu cộng trừ
+            else if (actionList.contains("+") || actionList.contains("-")) {
                 int indexPlus = actionList.indexOf("+");
                 int indexMinus = actionList.indexOf("-");
 
