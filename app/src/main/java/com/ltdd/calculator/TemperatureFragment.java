@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class TemperatureFragment extends Fragment {
 
-    private Button btCtoF, btFtoC;
+    private Button btCtoF, btFtoC, btReset;
     private TextView txtResult;
     private EditText txtInput;
     double result;
@@ -37,8 +37,9 @@ public class TemperatureFragment extends Fragment {
     private void Mapping(@NotNull View view) {
         btCtoF = view.findViewById(R.id.btConvert);
         btFtoC = view.findViewById(R.id.btFtoC);
-        txtInput = view.findViewById(R.id.txtLengthValue);
+        txtInput = view.findViewById(R.id.txtValue);
         txtResult = view.findViewById(R.id.txtResult);
+        btReset = view.findViewById(R.id.btReset);
     }
 
     private void CreateBtnFunction() {
@@ -54,17 +55,29 @@ public class TemperatureFragment extends Fragment {
                 ConvertCtoF();
             }
         });
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Reset();
+            }
+        });
+
     }
 
     private void ConvertCtoF() {
         double temp = Double.parseDouble(txtInput.getText().toString());
-        result = (temp * 1.8)/32;
-        txtResult.setText(String.valueOf(result));
+        result = (temp * 1.8)/32 ;
+        txtResult.setText(String.valueOf(result + "°F"));
     }
 
     private void ConvertFtoC() {
         double temp = Double.parseDouble(txtInput.getText().toString());
         result = (temp - 32)/1.8;
-        txtResult.setText(String.valueOf(result));
+        txtResult.setText(String.valueOf(result + "°C"));
+    }
+
+    private void Reset() {
+        txtInput.getText().clear();
+        txtResult.setText("");
     }
 }

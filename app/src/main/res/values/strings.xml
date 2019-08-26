@@ -17,6 +17,7 @@
     <string name="menu_cv_volume">Volume</string>
     <string name="menu_cv_time">Time</string>
     <string name="menu_cv_temp">Temperature</string>
+    <string name="menu_cv_area">Area</string>
 
     <string name="calculator_num0">0</string>
     <string name="calculator_num1">1</string>

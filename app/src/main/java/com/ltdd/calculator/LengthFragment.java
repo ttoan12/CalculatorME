@@ -21,7 +21,7 @@ public class LengthFragment extends Fragment {
     private Spinner spUnit;
     private EditText txtInput;
     private TextView txtFeet, txtInches, txtCm, txtM, txtKm, txtMm;
-    private Button btConvert;
+    private Button btConvert, btReset;
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
 
@@ -41,22 +41,29 @@ public class LengthFragment extends Fragment {
         return view;
     }
     private void Mapping(@NotNull View view) {
-        spUnit = view.findViewById(R.id.spLengthUnit);
-        txtInput = view.findViewById(R.id.txtLengthValue);
-        txtFeet = view.findViewById(R.id.txtFeet);
-        txtInches = view.findViewById(R.id.txtInches);
-        txtCm = view.findViewById(R.id.txtCm);
-        txtM = view.findViewById(R.id.txtM);
-        txtKm = view.findViewById(R.id.txtKm);
-        txtMm =  view.findViewById(R.id.txtMm);
+        spUnit = view.findViewById(R.id.spAreaUnit);
+        txtInput = view.findViewById(R.id.txtValue);
+        txtFeet = view.findViewById(R.id.txtMps);
+        txtInches = view.findViewById(R.id.txtmm2);
+        txtCm = view.findViewById(R.id.txtKmpHr);
+        txtM = view.findViewById(R.id.txtMileperHr);
+        txtKm = view.findViewById(R.id.txtInch2);
+        txtMm =  view.findViewById(R.id.txtMphr);
         listUnitName = new ArrayList<String>(Arrays.asList("feet", "ich", "mm", "cm", "m", "km"));
         btConvert = view.findViewById(R.id.btConvert);
+        btReset = view.findViewById(R.id.btReset);
     }
     private void CreateBtnFunction() {
         btConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Convert();
+            }
+        });
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Reset();
             }
         });
     }
@@ -119,5 +126,14 @@ public class LengthFragment extends Fragment {
         ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, listUnitName);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spUnit.setAdapter(arrayAdapter);
+    }
+    private void Reset() {
+        txtInput.getText().clear();
+        txtInches.setText("");
+        txtFeet.setText("");
+        txtMm.setText("");
+        txtCm.setText("");
+        txtM.setText("");
+        txtKm.setText("");
     }
 }
