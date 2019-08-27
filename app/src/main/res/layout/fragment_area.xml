@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -27,9 +27,9 @@
             android:textSize="24sp" />
 
         <Spinner
-            android:id="@+id/spAreaUnit"
+            android:id="@+id/spUnit"
             style="@android:style/Widget.Material.Light.Spinner.Underlined"
-            android:layout_width="101dp"
+            android:layout_width="120dp"
             android:layout_height="53dp"
             android:layout_marginTop="30dp"
             android:layout_toRightOf="@+id/txtValue" />
@@ -41,13 +41,13 @@
             android:layout_below="@+id/txtValue"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="@drawable/btn_shape_round"
             android:text="@string/converter_convertBtn"
+            android:background="@drawable/btn_shape_round"
             android:textColor="#0183FC"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtmm2"
+            android:id="@+id/txtMm2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btConvert"
@@ -103,52 +103,41 @@
             android:textAlignment="textStart"
             android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/btReset"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtInch2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/convert_resetBtn"
-            android:background="@drawable/btn_shape_round"
-            android:textColor="#0183FC"
-            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/t1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtmm2"
+            android:layout_below="@id/txtMm2"
             android:text="mm²" />
 
         <TextView
             android:id="@+id/t2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtMps"
+            android:layout_below="@id/txtCm2"
             android:text="cm²" />
 
         <TextView
             android:id="@+id/t3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtMphr"
+            android:layout_below="@id/txtM2"
             android:text="m²" />
 
         <TextView
             android:id="@+id/t4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtKmpHr"
+            android:layout_below="@id/txtHa"
             android:text="ha" />
 
         <TextView
             android:id="@+id/t5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtMileperHr"
+            android:layout_below="@id/txtKm2"
             android:text="km²" />
 
         <TextView
@@ -161,4 +150,16 @@
 
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t5"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        app:backgroundTint="#2196F3"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

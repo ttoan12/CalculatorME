@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -19,8 +22,8 @@ import java.util.Arrays;
 
 public class AreaFragment extends Fragment {
     private Spinner spUnit;
-    private EditText txtInput;
-    private TextView txtmm2, txtCm2, txtM2, txtHa, txtKm2, txtInch2;
+    private EditText txtValue;
+    private TextView txtMm2, txtCm2, txtM2, txtHa, txtKm2, txtInch2;
     private Button btConvert;
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
@@ -32,8 +35,22 @@ public class AreaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_length, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_area, container, false);
+        FloatingActionButton btReset = view.findViewById(R.id.btReset);
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtValue.getText().clear();
+                txtMm2.setText("");
+                txtCm2.setText("");
+                txtM2.setText("");
+                txtKm2.setText("");
+                txtHa.setText("");
+                txtInch2.setText("");
+                Snackbar.make(view, "Clear all your results", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         Mapping(view);
         FillData();
         CreateBtnFunction();
@@ -41,13 +58,13 @@ public class AreaFragment extends Fragment {
         return view;
     }
     private void Mapping(@NotNull View view) {
-        spUnit = view.findViewById(R.id.spAreaUnit);
-        txtInput = view.findViewById(R.id.txtValue);
-        txtmm2 = view.findViewById(R.id.txtmm2);
-        txtCm2 = view.findViewById(R.id.txtMps);
-        txtM2 = view.findViewById(R.id.txtMphr);
-        txtHa = view.findViewById(R.id.txtKmpHr);
-        txtKm2 = view.findViewById(R.id.txtMileperHr);
+        spUnit = view.findViewById(R.id.spUnit);
+        txtValue = view.findViewById(R.id.txtValue);
+        txtMm2 = view.findViewById(R.id.txtMm2);
+        txtCm2 = view.findViewById(R.id.txtCm2);
+        txtM2 = view.findViewById(R.id.txtM2);
+        txtHa = view.findViewById(R.id.txtHa);
+        txtKm2 = view.findViewById(R.id.txtKm2);
         txtInch2 =  view.findViewById(R.id.txtInch2);
         listUnitName = new ArrayList<String>(Arrays.asList("mm²", "cm²", "m²", "ha", "km²", "inch²"));
         btConvert = view.findViewById(R.id.btConvert);
@@ -62,7 +79,7 @@ public class AreaFragment extends Fragment {
     }
 
     private void Convert() {
-        double temp = Double.parseDouble(txtInput.getText().toString());
+        double temp = Double.parseDouble(txtValue.getText().toString());
         String unit =  spUnit.getSelectedItem().toString();
         if (unit == "mm²"){
             r1 = (temp * 1); //inches
@@ -107,7 +124,7 @@ public class AreaFragment extends Fragment {
             r5 = (temp * 1000); //m
             r6 = (temp * 1); //km
         }
-        txtmm2.setText(String.valueOf(r1)+" mm²");
+        txtMm2.setText(String.valueOf(r1)+" mm²");
         txtCm2.setText(String.valueOf(r2)+" cm²");
         txtM2.setText(String.valueOf(r3)+" m²");
         txtHa.setText(String.valueOf(r4)+" ha");

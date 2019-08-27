@@ -1,6 +1,8 @@
 package com.ltdd.calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_advanced_calculator) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorScientificFragment()).commit();
             setTitle(getString(R.string.menu_cal_advanced) + " " + getString(R.string.menu_calculator));
+        } else if (id == R.id.nav_date_calculator) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DateFragment()).commit();
+                setTitle(getString(R.string.menu_cal_date));
         }else if (id == R.id.nav_currency) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConverterFragment()).commit();
             setTitle(getString(R.string.menu_cv_currency));
@@ -82,5 +87,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intSetting = new Intent(MainActivity.this, SettingActivity.class);
+            startActivity(intSetting);
+            return false;
+        }
+
+        return super.onOptionsItemSelected(item);
+
+
     }
 }

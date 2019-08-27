@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -19,9 +22,9 @@ import java.util.Arrays;
 
 public class SpeedFragment extends Fragment {
     private Spinner spUnit;
-    private EditText txtInput;
+    private EditText txtValue;
     private TextView txtCmps, txtMps, txtMphr, txtKmpHr, txtMileperHr, txtFtpS;
-    private Button btConvert, btReset;
+    private Button btConvert;
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
 
@@ -33,7 +36,21 @@ public class SpeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_speed, container, false);
-
+        FloatingActionButton btReset = view.findViewById(R.id.btReset);
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtValue.getText().clear();
+                txtCmps.setText("");
+                txtMps.setText("");
+                txtMphr.setText("");
+                txtKmpHr.setText("");
+                txtMileperHr.setText("");
+                txtFtpS.setText("");
+                Snackbar.make(view, "Clear all your results", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         Mapping(view);
         FillData();
         CreateBtnFunction();
@@ -42,8 +59,8 @@ public class SpeedFragment extends Fragment {
     }
 
     private void Mapping(@NotNull View view) {
-        spUnit = view.findViewById(R.id.spAreaUnit);
-        txtInput = view.findViewById(R.id.txtValue);
+        spUnit = view.findViewById(R.id.spUnit);
+        txtValue = view.findViewById(R.id.txtValue);
         txtCmps = view.findViewById(R.id.txtCmps);
         txtMps = view.findViewById(R.id.txtMps);
         txtMphr = view.findViewById(R.id.txtMphr);
@@ -61,19 +78,9 @@ public class SpeedFragment extends Fragment {
                 Convert();
             }
         });
-        btReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Reset();
-            }
-        });
     }
-    private void Reset() {
-
-    }
-
     private void Convert() {
-        double temp = Double.parseDouble(txtInput.getText().toString());
+        double temp = Double.parseDouble(txtValue.getText().toString());
         String unit = spUnit.getSelectedItem().toString();
         if (unit == "m/s") {
             r1 = (temp * 1); //inches

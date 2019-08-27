@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,13 +19,13 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toLeftOf="@id/spAreaUnit"
+            android:layout_toLeftOf="@id/spUnit"
             android:inputType="numberDecimal"
             android:paddingTop="10dp" />
 
         <Spinner
-            android:id="@+id/spAreaUnit"
-            style="@android:style/Widget.Holo.Spinner"
+            android:id="@+id/spUnit"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
@@ -43,108 +43,129 @@
             android:background="@drawable/btn_shape_round"
             android:text="@string/converter_convertBtn"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="401dp"
+            android:layout_height="17dp"
+            android:layout_below="@id/txtMps"
+            android:text="Meter per second (m/s)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="334dp" />
+
+        <TextView
+            android:id="@+id/txtMphr"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/t2"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="360dp" />
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="398dp"
+            android:layout_height="14dp"
+            android:layout_below="@id/txtCmps"
+            android:text="Centimeter/second (cm/s)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <TextView
+            android:id="@+id/txtMps"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/t1"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="288dp" />
+
+        <TextView
+            android:id="@+id/t0"
+            android:layout_width="398dp"
+            android:layout_height="14dp"
+            android:layout_below="@id/txtMphr"
+            android:text="Meter/hour (m/h)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="410dp" />
+
+        <TextView
+            android:id="@+id/txtKmpHr"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/txtMphr"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="436dp" />
+
+        <TextView
+            android:id="@+id/t4"
+            android:layout_width="398dp"
+            android:layout_height="14dp"
+            android:layout_below="@id/txtKmpHr"
+            android:text="Kilometer/hour (km/h)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="486dp" />
+
+        <TextView
+            android:id="@+id/txtMileperHr"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/t4"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="515dp" />
+
+
+        <TextView
+            android:id="@+id/t5"
+            android:layout_width="398dp"
+            android:layout_height="14dp"
+            android:layout_below="@id/txtMileperHr"
+            android:text="Mile/hour (mph)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="14dp"
+            tools:layout_editor_absoluteY="565dp" />
+
+        <TextView
+            android:id="@+id/txtFtpS"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/t5"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="590dp" />
+
+        <TextView
+            android:id="@+id/t6"
+            android:layout_width="400dp"
+            android:layout_height="15dp"
+            android:layout_below="@id/txtFtpS"
+            android:text="Feet / second (ft/s)"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="640dp" />
+
+        <TextView
+            android:id="@+id/txtCmps"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/btConvert"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="209dp" />
+
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="401dp"
-        android:layout_height="17dp"
-        android:text="Meter per second (m/s)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="334dp" />
-
-    <TextView
-        android:id="@+id/txtMphr"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="360dp" />
-
-    <TextView
-        android:layout_width="398dp"
-        android:layout_height="14dp"
-        android:text="Centimeter/second (cm/s)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="261dp" />
-
-    <TextView
-        android:id="@+id/txtMps"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="288dp" />
-
-    <TextView
-        android:layout_width="398dp"
-        android:layout_height="14dp"
-        android:text="Meter/hour (m/h)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="410dp" />
-
-    <TextView
-        android:id="@+id/txtKmpHr"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="436dp" />
-
-    <TextView
-        android:layout_width="398dp"
-        android:layout_height="14dp"
-        android:text="Kilometer/hour (km/h)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="486dp" />
-
-    <TextView
-        android:id="@+id/txtMileperHr"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="515dp" />
-
-
-    <TextView
-        android:layout_width="398dp"
-        android:layout_height="14dp"
-        android:text="Mile/hour (mph)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="565dp" />
-
-    <TextView
-        android:id="@+id/txtFtpS"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="590dp" />
-
-    <TextView
-        android:layout_width="400dp"
-        android:layout_height="15dp"
-        android:text="Feet / second (ft/s)"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="640dp" />
-
-    <TextView
-        android:id="@+id/txtCmps"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="209dp" />
-
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btReset"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn_shape_round"
-        android:text="Button"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="665dp"
-        tools:text="@string/convert_resetBtn" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t6"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        app:backgroundTint="@color/floattingButton"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

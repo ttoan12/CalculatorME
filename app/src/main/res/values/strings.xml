@@ -5,9 +5,12 @@
 
     <string name="menu_calculator">Calculator</string>
     <string name="menu_converter">Converter</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_help">Help</string>
 
     <string name="menu_cal_standard">Standard</string>
     <string name="menu_cal_advanced">Advanced</string>
+    <string name="menu_cal_date">Date Calculator</string>
 
     <string name="menu_cv_currency">Currency</string>
     <string name="menu_cv_speed">Speed</string>
@@ -60,4 +63,14 @@
     <string name="convert_resetBtn">Reset</string>
     <string name="converter_hintFrom">Type value here…</string>
     <string name="converter_hintTo">Result goes here…</string>
+
+    <string name="prefs_title_setting">Visual Setting</string>
+    <string name="title_theme">Change theme</string>
+    <string name="title_theme_light">Light Theme</string>
+    <string name="title_theme_dark">Dark Theme</string>
+    <string name="prefs_title_language">Languages</string>
+    <string name="title_activity_setting">activity_setting</string>prefs_title_dark_theme
+
+    <string name="lang_en">English</string>
+    <string name="lang_vn">Tiếng Việt</string>
 </resources>
