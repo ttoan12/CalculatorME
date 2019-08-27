@@ -45,7 +45,7 @@
     <string name="calculator_Sin">sin</string>
     <string name="calculator_Cos">cos</string>
     <string name="calculator_Tan">tan</string>
-    <string name="calculator_Mod">Mod</string>
+    <string name="calculator_Mod">mod</string>
     <string name="calculator_Pow">^</string>
     <string name="calculator_Root">√</string>
     <string name="calculator_Pi">π</string>

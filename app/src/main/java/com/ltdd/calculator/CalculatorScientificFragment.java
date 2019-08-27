@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CalculatorScientificFragment extends Fragment {
 
@@ -168,7 +169,7 @@ public class CalculatorScientificFragment extends Fragment {
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("+");
-                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " + ";
+                String historyTextAppend = resultText + " + ";
                 txtHistory.append(historyTextAppend);
                 clearText = true;
             }
@@ -190,7 +191,7 @@ public class CalculatorScientificFragment extends Fragment {
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("-");
-                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " - ";
+                String historyTextAppend = resultText + " - ";
                 txtHistory.append(historyTextAppend);
                 clearText = true;
             }
@@ -212,7 +213,7 @@ public class CalculatorScientificFragment extends Fragment {
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("*");
-                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " × ";
+                String historyTextAppend = resultText + " × ";
                 txtHistory.append(historyTextAppend);
                 clearText = true;
             }
@@ -234,9 +235,88 @@ public class CalculatorScientificFragment extends Fragment {
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 actionList.add("/");
-                String historyTextAppend = (resultText.toCharArray()[0] == '-' ? "(" + resultText + ")" : resultText) + " ÷ ";
+                String historyTextAppend = resultText + " ÷ ";
                 txtHistory.append(historyTextAppend);
                 clearText = true;
+            }
+        });
+
+        btnMod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("mod");
+                    String historyTextAppend = " mod ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
+                if (IsNull() || IsEditSymbol("mod", "mod")) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add(resultText);
+                actionList.add("mod");
+                String historyTextAppend = resultText + " mod ";
+                txtHistory.append(historyTextAppend);
+                clearText = true;
+            }
+        });
+
+        btnPow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isBraced) {
+                    actionList.add("^");
+                    String historyTextAppend = " ^ ";
+                    txtHistory.append(historyTextAppend);
+                    clearText = true;
+                    isBraced = false;
+                    return;
+                }
+                if (IsNull() || IsEditSymbol("^", "^")) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add(resultText);
+                actionList.add("^");
+                String historyTextAppend = resultText + " ^ ";
+                txtHistory.append(historyTextAppend);
+                clearText = true;
+            }
+        });
+
+        btnPi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (clearText && !isBraced) {
+                    actionList.add("π");
+                    String historyTextAppend = "π";
+                    txtHistory.append(historyTextAppend);
+                    isBraced = true;
+                }
+            }
+        });
+
+        btnFactorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (!isBraced && !IsNull()) {
+                    String resultText = txtResult.getText().toString();
+                    resultText = String.valueOf((int) Double.parseDouble(resultText));
+                    actionList.add(resultText);
+                    actionList.add("!");
+                    String historyTextAppend = resultText + "!";
+                    txtHistory.append(historyTextAppend);
+                    isBraced = true;
+                }
             }
         });
 
@@ -321,9 +401,10 @@ public class CalculatorScientificFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String text = txtResult.getText().toString();
-                if (text.length() > 0)
+                if (text.length() > 0) {
                     txtResult.setText(text.substring(0, text.length() - 1));
-                else
+                    if (text.length() - 1 == 0) clearText = true;
+                } else
                     clearText = true;
             }
         });
@@ -331,10 +412,12 @@ public class CalculatorScientificFragment extends Fragment {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                actionList.clear();
                 txtResult.setText("");
                 txtHistory.setText("");
                 clearText = true;
                 clearHistory = true;
+                isBraced = false;
             }
         });
 
@@ -346,6 +429,7 @@ public class CalculatorScientificFragment extends Fragment {
                     txtHistory.setText("(");
                     clearHistory = false;
                     braceOpened += 1;
+                    isBraced = false;
                 } else if (clearText) {
                     actionList.add("(");
                     txtHistory.append("(");
@@ -358,29 +442,260 @@ public class CalculatorScientificFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String text = txtHistory.getText().toString();
-                if (braceOpened > 0 && text.toCharArray()[text.length() - 1] == '(') {
-                    actionList.add("0");
-                    actionList.add(")");
-                    txtHistory.append("0)");
-                    braceOpened -= 1;
-                    isBraced = true;
-                } else if (braceOpened > 0) {
-                    String resultText = txtResult.getText().toString();
-                    actionList.add(resultText);
-                    actionList.add(")");
-                    txtHistory.append(resultText + ")");
-                    braceOpened -= 1;
-                    isBraced = true;
+                String lastIndexObj = actionList.get(actionList.size() - 1);
+                if (braceOpened > 0) {
+                    if (text.toCharArray()[text.length() - 1] == '(') {
+                        actionList.add("0");
+                        actionList.add(")");
+                        txtHistory.append("0)");
+                        braceOpened -= 1;
+                        isBraced = true;
+                    } else if (lastIndexObj.equals("+") || lastIndexObj.equals("-") || lastIndexObj.equals("*") || lastIndexObj.equals("/")) {
+                        FixDot();
+                        String resultText = txtResult.getText().toString();
+                        actionList.add(resultText);
+                        actionList.add(")");
+                        txtHistory.append(resultText + ")");
+                        braceOpened -= 1;
+                        isBraced = true;
+                    } else {
+                        actionList.add(")");
+                        txtHistory.append(")");
+                        braceOpened -= 1;
+                        isBraced = true;
+                    }
                 }
+            }
+        });
+
+        btnSin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (isBraced) {
+                    int indexLastBraceOpen = actionList.lastIndexOf("(");
+                    if (indexLastBraceOpen == -1) return;
+                    actionList.set(indexLastBraceOpen, "sin(");
+                    String historyText = GetHistoryText(actionList);
+                    txtHistory.setText(historyText);
+                    return;
+                }
+                if (IsNull()) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add("sin(");
+                actionList.add(resultText);
+                actionList.add(")");
+                String historyText = GetHistoryText(actionList);
+                txtHistory.setText(historyText);
+                txtResult.setText("");
+                clearText = true;
+                isBraced = true;
+            }
+        });
+
+        btnCos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (isBraced) {
+                    int indexLastBraceOpen = actionList.lastIndexOf("(");
+                    if (indexLastBraceOpen == -1) return;
+                    actionList.set(indexLastBraceOpen, "cos(");
+                    String historyText = GetHistoryText(actionList);
+                    txtHistory.setText(historyText);
+                    return;
+                }
+                if (IsNull()) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add("cos(");
+                actionList.add(resultText);
+                actionList.add(")");
+                String historyText = GetHistoryText(actionList);
+                txtHistory.setText(historyText);
+                txtResult.setText("");
+                clearText = true;
+                isBraced = true;
+            }
+        });
+
+        btnTan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (isBraced) {
+                    int indexLastBraceOpen = actionList.lastIndexOf("(");
+                    if (indexLastBraceOpen == -1) return;
+                    actionList.set(indexLastBraceOpen, "tan(");
+                    String historyText = GetHistoryText(actionList);
+                    txtHistory.setText(historyText);
+                    return;
+                }
+                if (IsNull()) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add("tan(");
+                actionList.add(resultText);
+                actionList.add(")");
+                String historyText = GetHistoryText(actionList);
+                txtHistory.setText(historyText);
+                txtResult.setText("");
+                clearText = true;
+                isBraced = true;
+            }
+        });
+
+        btnRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clearHistory) {
+                    txtHistory.setText("");
+                    clearHistory = false;
+                }
+                if (isBraced) {
+                    int indexLastBraceOpen = actionList.lastIndexOf("(");
+                    if (indexLastBraceOpen == -1) return;
+                    actionList.set(indexLastBraceOpen, "√(");
+                    String historyText = GetHistoryText(actionList);
+                    txtHistory.setText(historyText);
+                    return;
+                }
+                if (IsNull()) return;
+                FixDot();
+                String resultText = txtResult.getText().toString();
+                actionList.add("√(");
+                actionList.add(resultText);
+                actionList.add(")");
+                String historyText = GetHistoryText(actionList);
+                txtHistory.setText(historyText);
+                txtResult.setText("");
+                clearText = true;
+                isBraced = true;
             }
         });
     }
 
     private double Calculate(List<String> actionList) {
         if (actionList.size() < 1) return -1;
+
+        // Xử lý actionList
+        for (int i = 0; i < actionList.size(); i++) {
+            // Pi
+            if (actionList.get(i).equals("π")) actionList.set(i, String.valueOf(Math.PI));
+            // Giai thừa
+            if (actionList.get(i).equals("!")) {
+                int numToCalc = Integer.parseInt(actionList.get(i - 1));
+                double result = 1;
+                for (int j = 2; j <= numToCalc; j++) {
+                    result *= j;
+                }
+                actionList.set(i - 1, String.valueOf(result));
+                actionList.remove(i);
+                i -= 1;
+            }
+        }
+
         while (true) {
+            // Nếu có sin
+            if (actionList.contains("sin(")) {
+                int indexBraceOpen = actionList.indexOf("sin(");
+                int indexBraceClose = -1;
+
+                while (indexBraceClose == -1) {
+                    for (int i = indexBraceOpen + 1; i < actionList.size(); i++) {
+                        if (actionList.get(i).equals(")")) {
+                            indexBraceClose = i;
+                            List<String> tempActionList = actionList.subList(indexBraceOpen + 1, indexBraceClose);
+                            Calculate(tempActionList);
+                            tempActionList.set(0, String.valueOf(Sin(tempActionList.get(0))));
+                            actionList.remove(indexBraceOpen + 2);
+                            actionList.remove(indexBraceOpen);
+                            break;
+                        } else if (actionList.get(i).equals("sin(")) {
+                            indexBraceOpen = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            // Nếu có cos
+            else if (actionList.contains("cos(")) {
+                int indexBraceOpen = actionList.indexOf("cos(");
+                int indexBraceClose = -1;
+
+                while (indexBraceClose == -1) {
+                    for (int i = indexBraceOpen + 1; i < actionList.size(); i++) {
+                        if (actionList.get(i).equals(")")) {
+                            indexBraceClose = i;
+                            List<String> tempActionList = actionList.subList(indexBraceOpen + 1, indexBraceClose);
+                            Calculate(tempActionList);
+                            tempActionList.set(0, String.valueOf(Cos(tempActionList.get(0))));
+                            actionList.remove(indexBraceOpen + 2);
+                            actionList.remove(indexBraceOpen);
+                            break;
+                        } else if (actionList.get(i).equals("cos(")) {
+                            indexBraceOpen = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            // Nếu có tan
+            else if (actionList.contains("tan(")) {
+                int indexBraceOpen = actionList.indexOf("tan(");
+                int indexBraceClose = -1;
+
+                while (indexBraceClose == -1) {
+                    for (int i = indexBraceOpen + 1; i < actionList.size(); i++) {
+                        if (actionList.get(i).equals(")")) {
+                            indexBraceClose = i;
+                            List<String> tempActionList = actionList.subList(indexBraceOpen + 1, indexBraceClose);
+                            Calculate(tempActionList);
+                            tempActionList.set(0, String.valueOf(Tan(tempActionList.get(0))));
+                            actionList.remove(indexBraceOpen + 2);
+                            actionList.remove(indexBraceOpen);
+                            break;
+                        } else if (actionList.get(i).equals("tan(")) {
+                            indexBraceOpen = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            // Nếu có căn
+            else if (actionList.contains("√(")) {
+                int indexBraceOpen = actionList.indexOf("√(");
+                int indexBraceClose = -1;
+
+                while (indexBraceClose == -1) {
+                    for (int i = indexBraceOpen + 1; i < actionList.size(); i++) {
+                        if (actionList.get(i).equals(")")) {
+                            indexBraceClose = i;
+                            List<String> tempActionList = actionList.subList(indexBraceOpen + 1, indexBraceClose);
+                            Calculate(tempActionList);
+                            tempActionList.set(0, String.valueOf(Math.sqrt(Double.parseDouble(tempActionList.get(0)))));
+                            actionList.remove(indexBraceOpen + 2);
+                            actionList.remove(indexBraceOpen);
+                            break;
+                        } else if (actionList.get(i).equals("√(")) {
+                            indexBraceOpen = i;
+                            break;
+                        }
+                    }
+                }
+            }
             // Nếu có ngoặc
-            if (actionList.contains("(")) {
+            else if (actionList.contains("(")) {
                 int indexBraceOpen = actionList.indexOf("(");
                 int indexBraceClose = -1;
 
@@ -400,84 +715,81 @@ public class CalculatorScientificFragment extends Fragment {
                     }
                 }
             }
-            // Nếu nhân hoặc chia
-            else if (actionList.contains("/") || actionList.contains("*")) {
+            // Nếu có mũ
+            else if (actionList.contains("^")) {
+                int indexPow = actionList.indexOf("^");
+                double numA = Double.parseDouble(actionList.get(indexPow - 1));
+                double numB = Double.parseDouble(actionList.get(indexPow + 1));
+                double result = Math.pow(numA, numB);
+                actionList.set(indexPow - 1, result + "");
+                actionList.remove(indexPow + 1);
+                actionList.remove(indexPow);
+            }
+            // Nếu nhân hoặc chia hoặc mod
+            else if (actionList.contains("/") || actionList.contains("*") || actionList.contains("mod")) {
+                int index = actionList.size();
                 int indexMultiply = actionList.indexOf("*");
                 int indexDivide = actionList.indexOf("/");
+                int indexMod = actionList.indexOf("mod");
 
-                // Nếu có cả nhân và chia -> Tính từ trái qua phải
-                if (indexMultiply > -1 && indexDivide > -1) {
-                    if (indexMultiply <= indexDivide) {
-                        double numA = Double.parseDouble(actionList.get(indexMultiply - 1));
-                        double numB = Double.parseDouble(actionList.get(indexMultiply + 1));
-                        double result = numA * numB;
-                        actionList.set(indexMultiply - 1, result + "");
-                        actionList.remove(indexMultiply + 1);
-                        actionList.remove(indexMultiply);
-                    } else {
-                        double numA = Double.parseDouble(actionList.get(indexDivide - 1));
-                        double numB = Double.parseDouble(actionList.get(indexDivide + 1));
-                        double result = numA / numB;
-                        actionList.set(indexDivide - 1, result + "");
-                        actionList.remove(indexDivide + 1);
-                        actionList.remove(indexDivide);
-                    }
-                    // Nếu chỉ có nhân
-                } else if (indexMultiply > -1) {
-                    double numA = Double.parseDouble(actionList.get(indexMultiply - 1));
-                    double numB = Double.parseDouble(actionList.get(indexMultiply + 1));
+                if (indexMultiply > -1 && index > indexMultiply) index = indexMultiply;
+                if (indexDivide > -1 && index > indexDivide) index = indexDivide;
+                if (indexMod > -1 && index > indexMod) index = indexMod;
+
+                // Nhân
+                if (index == indexMultiply) {
+                    double numA = Double.parseDouble(actionList.get(index - 1));
+                    double numB = Double.parseDouble(actionList.get(index + 1));
                     double result = numA * numB;
-                    actionList.set(indexMultiply - 1, result + "");
-                    actionList.remove(indexMultiply + 1);
-                    actionList.remove(indexMultiply);
-                    // Nếu chỉ có chia
-                } else if (indexDivide > -1) {
-                    double numA = Double.parseDouble(actionList.get(indexDivide - 1));
-                    double numB = Double.parseDouble(actionList.get(indexDivide + 1));
+                    actionList.set(index - 1, result + "");
+                    actionList.remove(index + 1);
+                    actionList.remove(index);
+                }
+                // Chia
+                else if (index == indexDivide) {
+                    double numA = Double.parseDouble(actionList.get(index - 1));
+                    double numB = Double.parseDouble(actionList.get(index + 1));
                     double result = numA / numB;
-                    actionList.set(indexDivide - 1, result + "");
-                    actionList.remove(indexDivide + 1);
-                    actionList.remove(indexDivide);
+                    actionList.set(index - 1, result + "");
+                    actionList.remove(index + 1);
+                    actionList.remove(index);
+                }
+                // Mod
+                else if (index == indexMod) {
+                    double numA = Double.parseDouble(actionList.get(index - 1));
+                    double numB = Double.parseDouble(actionList.get(index + 1));
+                    double result = numA % numB;
+                    actionList.set(index - 1, result + "");
+                    actionList.remove(index + 1);
+                    actionList.remove(index);
                 }
             }
             // Nếu cộng trừ
             else if (actionList.contains("+") || actionList.contains("-")) {
+                int index = actionList.size();
                 int indexPlus = actionList.indexOf("+");
                 int indexMinus = actionList.indexOf("-");
 
-                // Nếu có cả cộng và trừ -> Tính từ trái qua phải
-                if (indexPlus > -1 && indexMinus > -1) {
-                    if (indexPlus <= indexMinus) {
-                        double numA = Double.parseDouble(actionList.get(indexPlus - 1));
-                        double numB = Double.parseDouble(actionList.get(indexPlus + 1));
-                        double result = numA + numB;
-                        actionList.set(indexPlus - 1, result + "");
-                        actionList.remove(indexPlus + 1);
-                        actionList.remove(indexPlus);
-                    } else {
-                        double numA = Double.parseDouble(actionList.get(indexMinus - 1));
-                        double numB = Double.parseDouble(actionList.get(indexMinus + 1));
-                        double result = numA - numB;
-                        actionList.set(indexMinus - 1, result + "");
-                        actionList.remove(indexMinus + 1);
-                        actionList.remove(indexMinus);
-                    }
-                    // Nếu chỉ có cộng
-                } else if (indexPlus > -1) {
-                    double numA = Double.parseDouble(actionList.get(indexPlus - 1));
-                    double numB = Double.parseDouble(actionList.get(indexPlus + 1));
+                if (indexPlus > -1 && index > indexPlus) index = indexPlus;
+                if (indexMinus > -1 && index > indexMinus) index = indexMinus;
+
+                // Cộng
+                if (index == indexPlus) {
+                    double numA = Double.parseDouble(actionList.get(index - 1));
+                    double numB = Double.parseDouble(actionList.get(index + 1));
                     double result = numA + numB;
-                    actionList.set(indexPlus - 1, result + "");
-                    actionList.remove(indexPlus + 1);
-                    actionList.remove(indexPlus);
-                    // Nếu chỉ có trừ
-                } else if (indexMinus > -1) {
-                    double numA = Double.parseDouble(actionList.get(indexMinus - 1));
-                    double numB = Double.parseDouble(actionList.get(indexMinus + 1));
+                    actionList.set(index - 1, result + "");
+                    actionList.remove(index + 1);
+                    actionList.remove(index);
+                }
+                // Trừ
+                else if (index == indexMinus) {
+                    double numA = Double.parseDouble(actionList.get(index - 1));
+                    double numB = Double.parseDouble(actionList.get(index + 1));
                     double result = numA - numB;
-                    actionList.set(indexMinus - 1, result + "");
-                    actionList.remove(indexMinus + 1);
-                    actionList.remove(indexMinus);
+                    actionList.set(index - 1, result + "");
+                    actionList.remove(index + 1);
+                    actionList.remove(index);
                 }
             } else break;
         }
@@ -516,5 +828,32 @@ public class CalculatorScientificFragment extends Fragment {
 
     private boolean IsNull() {
         return txtResult.getText().toString().length() <= 0;
+    }
+
+    private String GetHistoryText(List<String> actionList) {
+        String text = "";
+        for (int i = 0; i < actionList.size(); i++) {
+            String s = actionList.get(i);
+            if (s.equals("+")) text += " + ";
+            else if (s.equals("-")) text += " - ";
+            else if (s.equals("*")) text += " × ";
+            else if (s.equals("/")) text += " ÷ ";
+            else if (s.equals("mod")) text += " mod ";
+            else if (s.equals("^")) text += " ^ ";
+            else text += s;
+        }
+        return text;
+    }
+
+    private double Sin(String num) {
+        return Double.parseDouble(String.format(Locale.ENGLISH, "%.9f", Math.sin(Math.toRadians(Double.parseDouble(num)))));
+    }
+
+    private double Cos(String num) {
+        return Double.parseDouble(String.format(Locale.ENGLISH, "%.9f", Math.cos(Math.toRadians(Double.parseDouble(num)))));
+    }
+
+    private double Tan(String num) {
+        return Double.parseDouble(String.format(Locale.ENGLISH, "%.9f", Math.tan(Math.toRadians(Double.parseDouble(num)))));
     }
 }
