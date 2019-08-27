@@ -7,6 +7,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#fcfcfc</item>
+        <item name="toolbarColor">@color/colorPrimary</item>
+        <item name="textColor">#303030</item>
+        <item name="buttonColor">#303030</item>
+        <item name="buttonBackgroundColor">#fcfcfc</item>
     </style>
 
     <!-- Dark Mode application theme. -->
@@ -16,6 +20,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#303030</item>
+        <item name="toolbarColor">#454545</item>
+        <item name="textColor">#fcfcfc</item>
+        <item name="buttonColor">#fcfcfc</item>
+        <item name="buttonBackgroundColor">#303030</item>
     </style>
 
 

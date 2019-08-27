@@ -20,10 +20,6 @@ import java.util.Date;
 
 public class DateFragment extends Fragment {
     private Button btnStart, btnEnd, btnCalculate;
-    static final int DATE_START_DIALOG_ID = 0;
-    private int startYear=1970;
-    private int startMonth=6;
-    private int startDay=15;
     private TextView txtDateStart, txtDateEnd;
     private TextView txtResult;
     private TextView txtMonthDays;

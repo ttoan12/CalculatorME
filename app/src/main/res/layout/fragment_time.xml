@@ -97,12 +97,12 @@
         android:id="@+id/btReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/t6"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/floattingButton"
+        android:src="@drawable/ic_button_reset"
         android:layout_gravity="bottom|end"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="@dimen/fab_margin"
-        app:backgroundTint="@color/floattingButton"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        android:layout_marginBottom="@dimen/fab_margin"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

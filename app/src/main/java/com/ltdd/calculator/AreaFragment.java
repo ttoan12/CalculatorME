@@ -82,47 +82,47 @@ public class AreaFragment extends Fragment {
         double temp = Double.parseDouble(txtValue.getText().toString());
         String unit =  spUnit.getSelectedItem().toString();
         if (unit == "mm²"){
-            r1 = (temp * 1); //inches
-            r2 = (temp * 0.083); //feet
-            r3 = (temp * 25.4); //mm
-            r4 = (temp * 2.54); //cm
-            r5 = (temp * 0.0254); //m
-            r6 = (temp * 0.0000254); //km
+            r1 = (temp * 1); //mm²
+            r2 = (temp * 0.01); //cm²
+            r3 = (temp * 0.000001); //m²
+            r4 = (temp * 0.0000000001); //ha
+            r5 = (temp * 0.000000000001); //km²
+            r6 = (temp * 0.00155); //inch²
         } else if (unit == "cm²"){
-            r1 = (temp * 12); //inches
-            r2 = (temp * 1); //feet
-            r3 = (temp * 304.8); //mm
-            r4 = (temp * 30.48); //cm
-            r5 = (temp * 0.3048); //m
-            r6 = (temp * 0.0003048); //km
+            r1 = (temp * 100); //mm²
+            r2 = (temp * 1); //cm²
+            r3 = (temp * 0.0001); //m²
+            r4 = (temp * 0.00000001); //ha
+            r5 = (temp * 0.0000000001); //km²
+            r6 = (temp * 0.00155); //inch²
         }if (unit == "m²"){
-            r1 = (temp * 0.0393701); //inches
-            r2 = (temp * 0.00328084); //feet
-            r3 = (temp * 1); //mm
-            r4 = (temp * 0.1); //cm
-            r5 = (temp * 0.001); //m
-            r6 = (temp * 0.000001); //km
+            r1 = (temp * 1000000); //mm²
+            r2 = (temp * 1000); //cm²
+            r3 = (temp * 1); //m²
+            r4 = (temp * 0.0001); //ha
+            r5 = (temp * 0.000001); //km²
+            r6 = (temp * 1550.003); //inch²
         } else if (unit == "ha") {
-            r1 = (temp * 0.393701); //inches
-            r2 = (temp * 0.0328084); //feet
-            r3 = (temp * 10); //mm
-            r4 = (temp * 1); //cm
-            r5 = (temp * 0.01); //m
-            r6 = (temp * 0.00001); //km
+            r1 = (temp * 10000 * 10000 ); //mm²
+            r2 = (temp * 10000000); //cm²
+            r3 = (temp * 10000); //m²
+            r4 = (temp * 1); //ha
+            r5 = (temp * 0.01); //km²
+            r6 = (temp * 15500031); //inch²
         } else if (unit == "km²") {
-            r1 = (temp * 39.3700787); //inches
-            r2 = (temp * 3.2808399 ); //feet
-            r3 = (temp * 10000); //mm
-            r4 = (temp * 100); //cm
-            r5 = (temp * 1); //m
-            r6 = (temp * 0.001); //km
+            r1 = (temp * 1000000 * 1000000 ); //mm²
+            r2 = (temp * 100000 * 100000 ); //cm²
+            r3 = (temp * 1000000); //m²
+            r4 = (temp * 100); //ha
+            r5 = (temp * 1); //km²
+            r6 = (temp * 1550003100); //inch²
         } else if (unit == "inch²") {
-            r1 = (temp * 39.3701); //inches
-            r2 = (temp * 3.28084); //feet
-            r3 = (temp * 1000000); //mm
-            r4 = (temp * 100000); //cm
-            r5 = (temp * 1000); //m
-            r6 = (temp * 1); //km
+            r1 = (temp * 645); //mm²
+            r2 = (temp * 6.45 ); //cm²
+            r3 = (temp * 0.000645); //m²
+            r4 = (temp * 0.0000000645); //ha
+            r5 = (temp * 0.000000000645); //km²
+            r6 = (temp * 1); //inch²
         }
         txtMm2.setText(String.valueOf(r1)+" mm²");
         txtCm2.setText(String.valueOf(r2)+" cm²");
