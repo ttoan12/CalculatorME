@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -28,12 +29,5 @@
         android:textAllCaps="true">
     </androidx.appcompat.widget.SwitchCompat>
 
-    <Button
-        android:id="@+id/btnLang"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:background="@android:color/white"
-        android:text="@string/prefs_title_language"
-        android:textAlignment="viewStart" />
+
 </LinearLayout>

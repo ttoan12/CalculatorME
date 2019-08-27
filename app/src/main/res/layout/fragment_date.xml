@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/backgroundColor"
     android:paddingTop="100dp">
 
         <TwoLineListItem
@@ -13,9 +14,23 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/border_top_bottom"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingTop="5px"
-            android:paddingBottom="5px">
+            android:paddingBottom="5px"
+            tools:layout_margin="15dp">
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/txtDateStart"
+                    android:layout_toRightOf="@id/icon"
+                    android:background="#00FFFFFF"
+                    android:paddingTop="30px"
+                    android:text="@string/converter_fromLabel"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="8sp" />
 
                 <ImageView
                     android:id="@+id/icon"
@@ -34,18 +49,9 @@
                     android:layout_below="@id/icon"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="#0183FC"
+                    android:textColor="@android:color/primary_text_light"
                     android:textStyle="bold"
                     tools:text="START" />
-
-                <Button
-                    android:id="@+id/btnStart"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_below="@id/txtDateStart"
-                    android:layout_toRightOf="@id/icon"
-                    android:paddingTop="30px"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/txtDateStart"
@@ -63,9 +69,23 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/border_top_bottom"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingTop="5px"
-            android:paddingBottom="5px">
+            android:paddingBottom="5px"
+            tools:layout_margin="15dp">
+
+                <Button
+                    android:id="@+id/btnEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/txtDateEnd"
+                    android:layout_toRightOf="@id/iconEnd"
+                    android:background="#00FFFFFF"
+                    android:paddingTop="30px"
+                    android:text="@string/converter_toLabel"
+                    android:textAlignment="textEnd"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="8sp" />
 
                 <ImageView
                     android:id="@+id/iconEnd"
@@ -83,20 +103,11 @@
                     android:layout_height="30dp"
                     android:layout_below="@id/iconEnd"
                     android:textAlignment="center"
-                    android:textAllCaps="false"
+                    android:textAllCaps="true"
 
-                    android:textColor="#0183FC"
+                    android:textColor="@android:color/primary_text_light_nodisable"
                     android:textStyle="bold"
                     tools:text="END" />
-
-                <Button
-                    android:id="@+id/btnEnd"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_below="@id/txtDateEnd"
-                    android:layout_toRightOf="@id/iconEnd"
-                    android:paddingTop="30px"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/txtDateEnd"
@@ -109,9 +120,13 @@
         </TwoLineListItem>
 
         <Button
-                android:id="@+id/btnCalculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
+            android:id="@+id/btnCalculate"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:paddingTop="50dp"
+            android:text="@string/converter_convertBtn"
+            android:textAlignment="center"></Button>
 
         <TextView
             android:id="@+id/txtResult"
