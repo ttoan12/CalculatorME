@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ public class LengthFragment extends Fragment {
     private Spinner spUnit;
     private EditText txtInput;
     private TextView txtFeet, txtInches, txtCm, txtM, txtKm, txtMm;
-    private Button btConvert, btReset;
+    private Button btConvert;
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
 
@@ -33,7 +36,21 @@ public class LengthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_length, container, false);
-
+        FloatingActionButton btReset = view.findViewById(R.id.btReset);
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtInput.getText().clear();
+                txtInches.setText("");
+                txtFeet.setText("");
+                txtMm.setText("");
+                txtCm.setText("");
+                txtM.setText("");
+                txtKm.setText("");
+                Snackbar.make(view, "Clear all your results", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         Mapping(view);
         FillData();
         CreateBtnFunction();
@@ -41,17 +58,18 @@ public class LengthFragment extends Fragment {
         return view;
     }
     private void Mapping(@NotNull View view) {
-        spUnit = view.findViewById(R.id.spAreaUnit);
+        spUnit = view.findViewById(R.id.spUnit);
         txtInput = view.findViewById(R.id.txtValue);
-        txtFeet = view.findViewById(R.id.txtMps);
-        txtInches = view.findViewById(R.id.txtmm2);
-        txtCm = view.findViewById(R.id.txtKmpHr);
-        txtM = view.findViewById(R.id.txtMileperHr);
-        txtKm = view.findViewById(R.id.txtInch2);
-        txtMm =  view.findViewById(R.id.txtMphr);
+        txtFeet = view.findViewById(R.id.txtFeet);
+        txtInches = view.findViewById(R.id.txtInches);
+        txtCm = view.findViewById(R.id.txtCm);
+        txtM = view.findViewById(R.id.txtM);
+        txtKm = view.findViewById(R.id.txtKm);
+        txtMm =  view.findViewById(R.id.txtMm);
         listUnitName = new ArrayList<String>(Arrays.asList("feet", "ich", "mm", "cm", "m", "km"));
         btConvert = view.findViewById(R.id.btConvert);
-        btReset = view.findViewById(R.id.btReset);
+
+
     }
     private void CreateBtnFunction() {
         btConvert.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +78,7 @@ public class LengthFragment extends Fragment {
                 Convert();
             }
         });
-        btReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Reset();
-            }
-        });
+
     }
 
     private void Convert() {
@@ -127,13 +140,5 @@ public class LengthFragment extends Fragment {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spUnit.setAdapter(arrayAdapter);
     }
-    private void Reset() {
-        txtInput.getText().clear();
-        txtInches.setText("");
-        txtFeet.setText("");
-        txtMm.setText("");
-        txtCm.setText("");
-        txtM.setText("");
-        txtKm.setText("");
-    }
+
 }

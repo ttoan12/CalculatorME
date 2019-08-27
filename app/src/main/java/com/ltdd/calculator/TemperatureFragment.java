@@ -7,14 +7,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.jetbrains.annotations.NotNull;
 
 public class TemperatureFragment extends Fragment {
 
-    private Button btCtoF, btFtoC, btReset;
+    private Button btCtoF, btFtoC;
     private TextView txtResult;
     private EditText txtInput;
     double result;
@@ -27,7 +31,16 @@ public class TemperatureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_temperature, container, false);
-
+        FloatingActionButton btReset = view.findViewById(R.id.btReset);
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtInput.getText().clear();
+                txtResult.setText("");
+                Snackbar.make(view, "Clear all your results", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         Mapping(view);
         CreateBtnFunction();
 
@@ -39,7 +52,6 @@ public class TemperatureFragment extends Fragment {
         btFtoC = view.findViewById(R.id.btFtoC);
         txtInput = view.findViewById(R.id.txtValue);
         txtResult = view.findViewById(R.id.txtResult);
-        btReset = view.findViewById(R.id.btReset);
     }
 
     private void CreateBtnFunction() {
@@ -53,12 +65,6 @@ public class TemperatureFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ConvertCtoF();
-            }
-        });
-        btReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Reset();
             }
         });
 
@@ -76,8 +82,7 @@ public class TemperatureFragment extends Fragment {
         txtResult.setText(String.valueOf(result + "°C"));
     }
 
-    private void Reset() {
-        txtInput.getText().clear();
-        txtResult.setText("");
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
     }
 }

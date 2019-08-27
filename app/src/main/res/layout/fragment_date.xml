@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical"
+    android:paddingTop="40dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+                <TwoLineListItem
+                    android:id="@+id/listItem1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/border_top_bottom"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5px"
+                    tools:layout_margin="15dp">
+
+                        <Button
+                            android:id="@+id/btnStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/txtDateStart"
+                            android:layout_toRightOf="@id/icon"
+                            android:background="#00FFFFFF"
+                            android:paddingTop="30px"
+                            android:text="@string/converter_fromLabel"
+                            android:textAlignment="textEnd"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/icon"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="10dp"
+                            app:srcCompat="@drawable/ic_icon_date" />
+
+                        <TextView
+                            android:id="@+id/itemStart"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/icon"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/primary_text_light"
+                            android:textStyle="bold"
+                            tools:text="@string/label_start" />
+
+                        <TextView
+                            android:id="@+id/txtDateStart"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_toRightOf="@id/icon"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="24sp" />
+
+                </TwoLineListItem>
+
+                <TwoLineListItem
+                    android:id="@+id/listItem2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/border_top_bottom"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5px"
+                    tools:layout_margin="15dp"
+                    android:layout_below="@+id/listItem1">
+
+                        <Button
+                            android:id="@+id/btnEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/txtDateEnd"
+                            android:layout_toRightOf="@id/iconEnd"
+                            android:background="#00FFFFFF"
+                            android:paddingTop="30px"
+                            android:text="@string/converter_toLabel"
+                            android:textAlignment="textEnd"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/iconEnd"
+                            android:layout_width="100dp"
+                            android:layout_height="70dp"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="10dp"
+                            app:srcCompat="@drawable/ic_icon_date" />
+
+                        <TextView
+                            android:id="@+id/itemEnd"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/iconEnd"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+
+                            android:textColor="@android:color/primary_text_light_nodisable"
+                            android:textStyle="bold"
+                            tools:text="@string/label_end" />
+
+                        <TextView
+                            android:id="@+id/txtDateEnd"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_toRightOf="@id/iconEnd"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="24sp" />
+
+                </TwoLineListItem>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp">
+
+                <Button
+                    android:id="@+id/btnCalculate"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtValue"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/btn_shape_round"
+                    android:text="@string/converter_convertBtn"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/btnCalculate"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txtMonthDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/txtResult"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txtWeekDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/txtMonthDays"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txtTotalDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/txtWeekDays"
+                    android:text=""
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="24sp" />
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:src="@drawable/ic_button_reset"
+            app:backgroundTint="@color/floattingButton" />
+
+</LinearLayout>

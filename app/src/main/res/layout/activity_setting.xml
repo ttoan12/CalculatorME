@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/toolbarColor"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchTheme"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="13dp"
+        android:text="@string/title_theme"
+        android:textAllCaps="true"
+        android:textColor="?attr/textColor"></androidx.appcompat.widget.SwitchCompat>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="13dp"
+        android:text="@string/prefs_title_language"
+        android:textAllCaps="true"
+        android:textColor="?attr/textColor"></androidx.appcompat.widget.SwitchCompat>
+
+    <Button
+        android:id="@+id/btAbout"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="13dp"
+        android:background="?attr/buttonBackgroundColor"
+        android:drawableRight="@drawable/ic_info"
+        android:text="@string/title_about"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="?attr/buttonColor"></Button>
+
+    <Button
+        android:id="@+id/btHelp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="13dp"
+        android:background="?attr/buttonBackgroundColor"
+        android:drawableRight="@drawable/ic_help_outline"
+        android:text="@string/menu_help"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="?attr/buttonColor"
+        ></Button>
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/backgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp">
+
+        <Button
+            android:id="@+id/btConvert"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtWeight"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_shape_round"
+            android:text="@string/convert_calculatorBtn"
+            android:textColor="#0183FC"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/txtWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHeight"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Enter your weight (kg)..."
+            android:inputType="numberDecimal"
+            android:textColorLink="#0183FC"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/txtHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Enter your height(cm)..."
+            android:inputType="numberDecimal"
+            android:textColorLink="#0183FC"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtIndexResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConvert"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:textColorLink="#0183FC"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtIndexResult"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:textColorLink="#0183FC"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtBMRIIndexResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtResult"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dropdown"
+            android:textColorLink="#0183FC"
+            android:textSize="24sp" />
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/floattingButton"
+        android:src="@drawable/ic_button_reset"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
