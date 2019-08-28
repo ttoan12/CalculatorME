@@ -78,18 +78,18 @@ public class BMIFragment extends Fragment {
         double height = Double.parseDouble(txtHeight.getText().toString());
         double weight = Double.parseDouble(txtWeight.getText().toString());
         resultBMI = (weight/(height*height))*10000;
-        resultBRM = ((9.99 * weight)+(6.25 * height)-(4.92)+5)/1000;
+        resultBRM = (((9.99 * weight)+(6.25 * height)-(4.92)+5)/1000)*1000;
         if (resultBMI <= 18.5){
             txtIndexResult.setText(String.valueOf("Your BMI is: " + resultBMI));
-            txtResult.setText(String.valueOf("underweight"));
+            txtResult.setText(String.valueOf("Underweight"));
             txtBMRIIndexResult.setText(String.valueOf("The number of calories you need each day: " + resultBRM));
         } else if (resultBMI > 18.5 && resultBMI < 24.9){
             txtIndexResult.setText(String.valueOf("Your BMI is: " + resultBMI));
-            txtResult.setText(String.valueOf("nomal weight"));
+            txtResult.setText(String.valueOf("Standard weight"));
             txtBMRIIndexResult.setText(String.valueOf("The number of calories you need each day: " + resultBRM));
         }else if (resultBMI > 25 && resultBMI < 29.9) {
             txtIndexResult.setText(String.valueOf("Your BMI is: " + resultBMI));
-            txtResult.setText(String.valueOf("over weight"));
+            txtResult.setText(String.valueOf("Overweight"));
             txtBMRIIndexResult.setText(String.valueOf("The number of calories you need each day: " + resultBRM));
         }else if (resultBMI >= 30) {
             txtIndexResult.setText(String.valueOf("Your BMI is: " + resultBMI));

@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:id="@+id/RelativeLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="15dp">
 
@@ -22,7 +22,7 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/btn_shape_round"
             android:text="@string/convert_calculatorBtn"
-            android:textColor="#0183FC"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
 
@@ -38,7 +38,7 @@
             android:hint="Enter your weight (kg)..."
             android:inputType="numberDecimal"
             android:textColorLink="#0183FC"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="italic" />
 
         <EditText
@@ -52,50 +52,102 @@
             android:hint="Enter your height(cm)..."
             android:inputType="numberDecimal"
             android:textColorLink="#0183FC"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="italic" />
+
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="#2B78B6"
+        app:cardCornerRadius="1dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="BMI (Body mass index)"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtIndexResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_below="@id/btConvert"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:spinnerMode="dropdown"
+            android:textColor="@android:color/white"
             android:textColorLink="#0183FC"
-            android:textSize="24sp" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/txtResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_below="@id/txtIndexResult"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:spinnerMode="dropdown"
+            android:textColor="@android:color/white"
             android:textColorLink="#0183FC"
-            android:textSize="24sp" />
+            android:textSize="16dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="#2B78B6"
+        app:cardCornerRadius="1dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="BMR (Basal metabolic rate)"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtBMRIIndexResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_below="@id/txtResult"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="45dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:spinnerMode="dropdown"
+            android:textColor="@android:color/white"
             android:textColorLink="#0183FC"
-            android:textSize="24sp" />
-
-
-    </RelativeLayout>
+            android:textSize="16dp" />
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btReset"
@@ -109,4 +161,5 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

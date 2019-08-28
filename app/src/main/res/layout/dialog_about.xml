@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/txtIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_intro"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtIntro"
+            android:text="@string/about_sub1"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent2"
+            android:text="@string/about_content1"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent3"
+            android:text="@string/about_sub2"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent4"
+            android:text="@string/about_content2"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent5"
+            android:text="@string/about_sub3"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent6"
+            android:text="@string/about_content3"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent7"
+            android:text="@string/about_sub4"></TextView>
+
+        <TextView
+            android:id="@+id/txtContent9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtContent8"
+            android:text="@string/about_content4"></TextView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

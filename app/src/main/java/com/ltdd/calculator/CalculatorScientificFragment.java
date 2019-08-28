@@ -323,7 +323,6 @@ public class CalculatorScientificFragment extends Fragment {
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (IsNull()) return;
                 if (clearHistory) {
                     txtHistory.setText("");
                     clearHistory = false;
@@ -349,6 +348,8 @@ public class CalculatorScientificFragment extends Fragment {
                     isBraced = false;
                     return;
                 }
+
+                if (IsNull()) return;
                 String resultText = txtResult.getText().toString();
                 actionList.add(resultText);
                 txtHistory.append(resultText);
@@ -799,7 +800,7 @@ public class CalculatorScientificFragment extends Fragment {
 
     private void FixDot() {
         String resultText = txtResult.getText().toString();
-        if (resultText.substring(resultText.length() - 1).equals(".")) {
+        if (!IsNull() && resultText.substring(resultText.length() - 1).equals(".")) {
             txtResult.append("0");
         }
     }

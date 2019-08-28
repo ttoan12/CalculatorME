@@ -84,10 +84,9 @@
     <string name="about_sub2">2. Unit Converter: </string>
     <string name="about_sub3">3. Currency Converter: </string>
     <string name="about_sub4">4. Health Calculator: </string>
-    <string name="about_sub5">5. Máy tính Chung: </string>
     <string name="about_content1">• Supports four basic arithmetic operations, squares, parentheses of expressions, and simple and complex scientific operations.</string>
     <string name="about_content2">• Support converting length, weight, width, mass, time, temperature, speed, data, time.</string>
     <string name="about_content3">• Support over 10 currencies in the world, including dollar, Euro, Yen, Chinese Yuan, etc.</string>
-    <string name="about_content4">• You can calculate body mass index (BMI)</string>
+    <string name="about_content4">• You can calculate body mass index (BMI) and get the number of calories you need for a day.</string>
     <string name="about_content5">.</string>
 </resources>
