@@ -28,6 +28,7 @@ public class AreaFragment extends Fragment {
     private ArrayList<String> listUnitName;
     double r1, r2, r3, r4, r5, r6;
 
+
     public AreaFragment() {
         // Required empty public constructor
     }
